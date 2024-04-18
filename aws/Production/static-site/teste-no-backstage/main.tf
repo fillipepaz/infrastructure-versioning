@@ -19,8 +19,12 @@ terraform {
 module "cloudfront" {
     source = "git@github.com:fillipepaz/aws-cloudfront-module.git//static-site"
     accountId="704151674151"
-    repoNameAndOrg="fillipe/static-site-example"
+    repoNameAndOrg="fillipepaz/static-site-example"
     bucketName="bucket-teste-no-backstage"
     project="teste-no-backstage" 
     
 }
+
+output "url" {
+    value = module.cloudfront.cloudfrontDns
+  }
